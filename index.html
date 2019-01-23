@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Mining</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Text Mining">
+  <meta name="author" content="Gunnvant (Jigsaw Academy)">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/quiz/css/demo.css"></link>
+<link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Text Mining</h1>
+    <h2>Text Representation and Aspect Based Sentiment Analysis</h2>
+    <p>Gunnvant (Jigsaw Academy)<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>About me</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>SME/Senior Faculty with Jigsaw Academy</li>
+<li>Been in Academia prior to Jigsaw taught courses in Statistics, Research Methods @ GNDU, Amritsar</li>
+<li>Academics: Statistics, Maths and Economics</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Assumptions I make about you</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Interested in text analysis</li>
+<li>Know python and its DS/ML ecosystem</li>
+<li>Have seen and worked with jupyter notebooks</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Agenda</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Text mining what and why?</li>
+<li>Representing text for ML tasks:
+
+<ul>
+<li>Can we predict when trump tweets?</li>
+<li>Summarizing ted talks</li>
+<li>Recommending ted talks to watch</li>
+</ul></li>
+<li>NLP and aspect extraction
+
+<ul>
+<li>What do people talk about in Amazon reviews?</li>
+</ul></li>
+<li>Word vectors and Aspect Synonyms
+
+<ul>
+<li>Amazon reviews continued</li>
+</ul></li>
+<li>Lexicon based sentiment analysis
+
+<ul>
+<li>Tying the loose ends</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Pre-reqisites</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>You have python anaconda installed along with spacy and textblob.If so, all the codes are hosted <a href="https://github.com/Gunnvant/code_demos">here</a>, please download this repo.</p>
+
+<p>If not I have created a lab environment. This cloud instance takes around 3-4 minutes to spin up, so you can <a href="https://mybinder.org/v2/gh/Gunnvant/code_demos/master">click</a> here and start the lab</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Text mining: what and why?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="text_mining.jpg"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Text mining: what and why?</h2>
+  </hgroup>
+  <article data-timings="">
+    <div class="row">
+  <div class="column">
+    <img src="text_mining.jpg" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="txt.png" style="width:100%">
+  </div>
+</div>
+
+<style>
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Text mining: what and why?</h2>
+  </hgroup>
+  <article data-timings="">
+    <div class="row">
+  <div class="column">
+    <img src="text_mining.jpg" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="txt_1.png" style="width:100%">
+  </div>
+</div>
+
+<style>
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Text mining: what and why?</h2>
+  </hgroup>
+  <article data-timings="">
+    <div class="row">
+  <div class="column">
+    <img src="text_mining.jpg" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="txt_2.png" style="width:100%">
+  </div>
+</div>
+
+<style>
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Text mining: what and why?</h2>
+  </hgroup>
+  <article data-timings="">
+    <div class="row">
+  <div class="column">
+    <img src="text_mining.jpg" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="uses.png" style="width:100%">
+  </div>
+</div>
+
+<style>
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Text mining: what and why?</h2>
+  </hgroup>
+  <article data-timings="">
+    <div class="row">
+  <div class="column">
+    <img src="text_mining.jpg" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="uses.png" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="uses1.png" style="width:100%">
+  </div>
+</div>
+
+<style>
+.column {
+  float: left;
+  width: 45%;
+  padding: 5px;
+}
+
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Representing text for ML tasks</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Most ML tasks are centered around finding a mapping between predictors and labels</p>
+
+<p>\[labels=f(Predictors)\]</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Representing text for ML tasks</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Most ML tasks are centered around finding a mapping between predictors and labels</p>
+
+<p>\[labels=f(Predictors)\]</p>
+
+<p>And this is how mostly data should be laid out if any ML is to used:</p>
+
+<p><img src="ML.png"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Representing text for ML tasks</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>But what will you do if you want use text as an input to an ML task?</p>
+
+<table><thead>
+<tr>
+<th align="center">Predictor</th>
+<th align="center">Label</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">This Joke is very funny</td>
+<td align="center">Haha</td>
+</tr>
+<tr>
+<td align="center">This Joke is not funny</td>
+<td align="center">Meh</td>
+</tr>
+<tr>
+<td align="center">Good joke</td>
+<td align="center">Haha</td>
+</tr>
+<tr>
+<td align="center">Pathetic joke</td>
+<td align="center">Meh</td>
+</tr>
+</tbody></table>
+
+<p>The underlying assumption while doing any kind of ML task is that one can <strong><em>estimate</em></strong> the functional dependence \(f\) between predictors and targets</p>
+
+<p>\[labels=f(Predictors)\]</p>
+
+<p>To find any sort of functional dependence one will need to represent both predictors and labels as numbers</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Representing text for ML tasks</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Its easier to deal with labels:</p>
+
+<table><thead>
+<tr>
+<th align="center">Predictor</th>
+<th align="center">Label</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">This Joke is very funny</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">This Joke is not funny</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">Good joke</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">Pathetic joke</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+
+<p>But how do we handle the text?</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Representing text for ML tasks</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Traditionally we can use a BOW (Bag of words approach to represent text)</p>
+
+<p><img src="bow.png"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Representing text for ML tasks</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<p>The problem with BOW represetntation of text is:</p>
+
+
+<textarea rows="" style="width:95%" class='submitCompare'
+  placeholder='Type your answer (at least 140 characters)'>
+</textarea>
+<a class='btn btn-success submitCompare'>
+  Submit and Compare
+</a>
+<a class='btn btn-danger clearSubmitCompare'>Clear</a>
+
+<div class='explanation' style='display: none;'>
+  <p>The problem with BOW representation is that the importance of the words is not captured only counts are considered.</p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Representing text for ML tasks</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>An imporovement on the BOW approach is the tfidf representation</p>
+
+<p><img src="tfidf.png"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Representing text for ML tasks</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div class="quiz quiz-multiple well" data-individual>
+  <p>If you use tfidf representation on a corpus which is fairy large, then (Choose the ones which are correct)</p>
+
+<ol>
+<li><em>One can end up with a tfidf matrix with many columns</em></li>
+<li><em>The order of the words will not be retained</em></li>
+<li>Very compact representation of the text will be obtained</li>
+<li>Nothing could go wrong in life !!!</li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-explanation">
+  <p><img src="einstien.png"></p>
+
+</div>
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Can we predict when trump tweets?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Let&#39;s head over to our lab to see how we can predict if a tweet is made by Donald Trump or by some-one else.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Summarising ted talks</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Let&#39;s take another example to see how we can use tfidf representation in other creative ways. We will take a look at a dataset and try to extract &quot;important&quot; terms out of this document. All we will need to do is pick up the words that have very high tfidf scores.</p>
+
+<p>Doing this will make sense when you have a text corpus which respects the rules of standard english grammar and uses standard english vocabulary.</p>
+
+<p>Let&#39;s visit the lab again, you can follow along locally as well.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Representing text for ML tasks</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Another thing that any numerical representtion of text enables us to do is, in establishing similarity over text. This can aid in doing text search and hence in aid in recommendations.</p>
+
+<p>The idea is that two similar pieces of text will have similar tfidf representation.</p>
+
+<p><img src="similarity.png"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Representing text for ML tasks</h2>
+  </hgroup>
+  <article data-timings="">
+    <iframe width="402" height="346" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=93C4DDFD9869A0CF%217497&authkey=%21ABggvfn_ilB-TX8&em=2&AllowTyping=True&ActiveCell='Sheet1'!E3&wdInConfigurator=True"></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Representing text for ML tasks</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>One very popular way of finding the distance between vectors is to use cosine distance. </p>
+
+<p><img src="cosine.png" width="600px"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Recommending ted talks</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The ideas discussed can be summarised as below:</p>
+
+<p><img src="cosine_2.png" width="500px"></p>
+
+<p>These basic building blocks can be used to create contextual search recommendation. Head over to the lab/local code</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>NLP and aspect extraction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Let&#39;s now turn our attention to what NLP is and how it can help us in different business contexts. 
+But what is NLP?</p>
+
+<p><img src="nlp.png",height="500px"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>NLP and aspect extraction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>So, how does the ability to do POS tagging or finding out Subject-Object relationships helps us?
+Sample the sentences below</p>
+
+<ol>
+<li>I loved the camera in this mobile phone. But I hated the build quality</li>
+<li>The beach has amazing views. Food is great. Drinks are even better and 
+locals are friendly</li>
+</ol>
+
+<p>Can you see how POS tagging be of any use here?
+Let&#39;s again go back to our lab and work with nlp_basic.ipynb </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>NLP and aspect extraction: What people in Amazon Reviews talk about?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>What does this leads to?</p>
+
+<p>If you are interested in finding what people are talking about:</p>
+
+<ul>
+<li>Label all the words with their pos tag </li>
+<li>Count frequently occuring nouns</li>
+</ul>
+
+<p>Let&#39;s head back to our notebook.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Word vectors and aspect synonyms</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The approach discussed so far is useful if you want to do some exploratory analysis. The approach will be useful if you don&#39;t know what people are talking about. </p>
+
+<p>What if you already knew what are the aspects you would want to search for? You can use word vectors to find out words similar to the aspects that you have finalised.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Word vectors and aspect synonyms</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>All about word vectors goes here.....</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='About me'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Assumptions I make about you'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Agenda'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Pre-reqisites'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Text mining: what and why?'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Text mining: what and why?'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Text mining: what and why?'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Text mining: what and why?'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Text mining: what and why?'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Text mining: what and why?'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Representing text for ML tasks'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Representing text for ML tasks'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Representing text for ML tasks'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Representing text for ML tasks'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Representing text for ML tasks'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Representing text for ML tasks'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Representing text for ML tasks'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Representing text for ML tasks'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Can we predict when trump tweets?'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Summarising ted talks'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Representing text for ML tasks'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Representing text for ML tasks'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Representing text for ML tasks'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Recommending ted talks'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='NLP and aspect extraction'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='NLP and aspect extraction'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='NLP and aspect extraction: What people in Amazon Reviews talk about?'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Word vectors and aspect synonyms'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='Word vectors and aspect synonyms'>
+         29
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/quiz/js/jquery.quiz.js"></script>
+<script src="libraries/widgets/quiz/js/mustache.min.js"></script>
+<script src="libraries/widgets/quiz/js/quiz-app.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

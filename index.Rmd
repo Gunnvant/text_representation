@@ -36,13 +36,16 @@ knit        : slidify::knit2slides
 * NLP and aspect extraction
   * What do people talk about in Amazon reviews?
 * Word vectors and Aspect Synonyms
-  * Amazon reviews continued
-* Lexicon based sentiment analysis
+  * Do people mention food more than ambience in hotel reviews?
+* Aspect based sentiment analysis
   * Tying the loose ends
+* What I didn't talk about?
+  * You can use labelled data
+  * Fine tune sentiment analysis using NLP parse
 
 --- .class #id
 
-## Pre-reqisites
+## Pre-requisites
 You have python anaconda installed along with spacy and textblob.If so, all the codes are hosted <a href="https://github.com/Gunnvant/code_demos">here</a>, please download this repo.
 
 If not I have created a lab environment. This cloud instance takes around 3-4 minutes to spin up, so you can <a href="https://mybinder.org/v2/gh/Gunnvant/code_demos/master">click</a> here and start the lab
@@ -474,6 +477,6 @@ This training process results in vector representation of each word in the corpu
 
 ## Word vectors and aspect synonyms
 
-But what do train for?
+But what to train for?
 
 <img src="wv6.gif">

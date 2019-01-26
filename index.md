@@ -402,5 +402,78 @@ What if you already knew what are the aspects you would want to search for? You 
 
 ## Word vectors and aspect synonyms
 
-All about word vectors goes here.....
+But first let's talk about word vectors? What will happen if following sentences are represented by tfidf vectors?
 
+<img src="wv1.png">
+
+--- &checkbox
+
+## Word vectors and aspect synonyms
+
+But first let's talk about word vectors? What will happen if following sentences are represented by tfidf vectors?
+
+<img src="wv1.png">
+
+1. Nothing at all
+2. _Something_
+3. _Something not appropropriate_
+4. _I have not listed the most appropriate option_
+
+*** .explanation
+
+<img src="einstien.png">
+
+
+--- .class #id
+
+## Word vectors and aspect synonyms
+
+<img src="wv2.png">
+
+
+--- .class #id
+
+## Word vectors and aspect synonyms
+
+So, what can be done? Before word vectors became popular people experimented with Markov models where one essentially creates a probability distribution on co-occurence of words something like this:
+
+$$P(word_i | word_j) \forall (word_i,word_j)$$
+
+This partially solves the problem of getting some sense of co-occurence of words.
+
+Word vectors solve this problem by creating vector representation of words in such a manner the co-occurence structure of words is retained.
+
+--- .class #id
+
+## Word vectors and aspect synonyms
+
+One makes use of neural networks while creating word vectors. Here is a schematic:
+
+<img src="wv3.png">
+
+
+--- .class #id
+
+## Word vectors and aspect synonyms
+
+One makes use of neural networks while creating word vectors. Here is a schematic:
+
+<img src="wv4.gif">
+
+
+--- .class #id
+
+## Word vectors and aspect synonyms
+
+This training process results in vector representation of each word in the corpus being learnt:
+
+<img src="wv5.png">
+
+
+--- .class #id
+
+## Word vectors and aspect synonyms
+
+But what do train for?
+
+<img src="wv6.gif">

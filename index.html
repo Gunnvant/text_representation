@@ -642,7 +642,121 @@ Let&#39;s again go back to our lab and work with nlp_basic.ipynb </p>
     <h2>Word vectors and aspect synonyms</h2>
   </hgroup>
   <article data-timings="">
-    <p>All about word vectors goes here.....</p>
+    <p>But first let&#39;s talk about word vectors? What will happen if following sentences are represented by tfidf vectors?</p>
+
+<p><img src="wv1.png"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-30" style="background:;">
+  <hgroup>
+    <h2>Word vectors and aspect synonyms</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div class="quiz quiz-multiple well" data-individual>
+  <p>But first let&#39;s talk about word vectors? What will happen if following sentences are represented by tfidf vectors?</p>
+
+<p><img src="wv1.png"></p>
+
+<ol>
+<li>Nothing at all</li>
+<li><em>Something</em></li>
+<li><em>Something not appropropriate</em></li>
+<li><em>I have not listed the most appropriate option</em></li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-explanation">
+  <p><img src="einstien.png"></p>
+
+</div>
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Word vectors and aspect synonyms</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="wv2.png"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Word vectors and aspect synonyms</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>So, what can be done? Before word vectors became popular people experimented with Markov models where one essentially creates a probability distribution on co-occurence of words something like this:</p>
+
+<p>\[P(word_i | word_j) \forall (word_i,word_j)\]</p>
+
+<p>This partially solves the problem of getting some sense of co-occurence of words.</p>
+
+<p>Word vectors solve this problem by creating vector representation of words in such a manner the co-occurence structure of words is retained.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Word vectors and aspect synonyms</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>One makes use of neural networks while creating word vectors. Here is a schematic:</p>
+
+<p><img src="wv3.png"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Word vectors and aspect synonyms</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>One makes use of neural networks while creating word vectors. Here is a schematic:</p>
+
+<p><img src="wv4.gif"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Word vectors and aspect synonyms</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This training process results in vector representation of each word in the corpus being learnt:</p>
+
+<p><img src="wv5.png"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Word vectors and aspect synonyms</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>But what do train for?</p>
+
+<p><img src="wv6.gif"></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -824,6 +938,48 @@ Let&#39;s again go back to our lab and work with nlp_basic.ipynb </p>
       <a href="#" target="_self" rel='tooltip' 
         data-slide=29 title='Word vectors and aspect synonyms'>
          29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='Word vectors and aspect synonyms'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='Word vectors and aspect synonyms'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='Word vectors and aspect synonyms'>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='Word vectors and aspect synonyms'>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='Word vectors and aspect synonyms'>
+         34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title='Word vectors and aspect synonyms'>
+         35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='Word vectors and aspect synonyms'>
+         36
       </a>
     </li>
   </ul>

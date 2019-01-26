@@ -65,8 +65,8 @@
   <article data-timings="">
     <ul>
 <li>Interested in text analysis</li>
-<li>Know python and its DS/ML ecosystem</li>
-<li>Have seen and worked with jupyter notebooks</li>
+<li>Know python and have some expericen with data analysis </li>
+<li>Have seen and played with jupyter notebooks</li>
 </ul>
 
   </article>
@@ -95,18 +95,12 @@
 <li>Word vectors and Aspect Synonyms
 
 <ul>
-<li>Do people mention food more than ambience in hotel reviews?</li>
+<li>Do people mention food more than service in hotel reviews?</li>
 </ul></li>
 <li>Aspect based sentiment analysis
 
 <ul>
 <li>Tying the loose ends</li>
-</ul></li>
-<li>What I didn&#39;t talk about?
-
-<ul>
-<li>You can use labelled data</li>
-<li>Fine tune sentiment analysis using NLP parse</li>
 </ul></li>
 </ul>
 
@@ -594,7 +588,7 @@ But what is NLP?</p>
     <h2>NLP and aspect extraction</h2>
   </hgroup>
   <article data-timings="">
-    <p>So, how does the ability to do POS tagging or finding out Subject-Object relationships helps us?
+    <p>So, how does the ability to do POS tagging or finding out Subject-Object relationships help us?
 Sample the sentences below</p>
 
 <ol>
@@ -763,6 +757,134 @@ Let&#39;s again go back to our lab and work with nlp_basic.ipynb </p>
     <p>But what to train for?</p>
 
 <p><img src="wv6.gif"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Word vectors and aspect synonyms: Food or Service</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>How can word vectors help us?</p>
+
+<p><img src="wv7.png" width="600px"></p>
+
+<p>Let&#39;s headover to the lab once again and see how we can extract mentions of specific aspects</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Aspect Based Sentiment Analysis:</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>In aspect based sentiment analysis we try to find out what people&#39;s opninons are about different aspects of a product.</p>
+
+<p><img src="absa1.png"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Aspect Based Sentiment Analysis:</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>One way in which this problem can be solved for is by treating this problem as supervised ML task by labelling the data as follows:</p>
+
+<p><img src="absa2.png"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Aspect Based Sentiment Analysis:</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>One way in which this problem can be solved for is by treating this problem as supervised ML task by labelling the data as follows:</p>
+
+<p><img src="absa3.png" width="600px"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Aspect Based Sentiment Analysis:</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>One way in which this problem can be solved for is by treating this problem as supervised ML task by labelling the data as follows:</p>
+
+<p><img src="absa3.png" width="600px"></p>
+
+<p>Labour intensive probably not a good idea idea if MVP is all you want to build. In the long term though this is what one should do ideally.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Aspect Based Sentiment Analysis:</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>What can we do then if we want to build a quick and dirty MVP?</p>
+
+<p>We already have pre-trained sentiment analysers:</p>
+
+<ol>
+<li>Lexicon based (Count nouns, adjectives and match with an existing list of positve/negative words)</li>
+<li>Pre-trained ML models</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Aspect Based Sentiment Analysis: Tying the loose ends</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Use word vectors to find mentions of aspect categories</li>
+<li>Use pre-trained models or lexicons to find sentiment of sentence fragments (noun phrases in which aspects occur)</li>
+</ol>
+
+<p>Let&#39;s see an example and head over to the lab</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Things I have not talked about:</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>How to test how good such a system is?</li>
+<li>How to treat this as supervised learning problem?</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Thank you, any questions?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="bye.gif"></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -986,6 +1108,60 @@ Let&#39;s again go back to our lab and work with nlp_basic.ipynb </p>
       <a href="#" target="_self" rel='tooltip' 
         data-slide=36 title='Word vectors and aspect synonyms'>
          36
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title='Word vectors and aspect synonyms: Food or Service'>
+         37
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='Aspect Based Sentiment Analysis:'>
+         38
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=39 title='Aspect Based Sentiment Analysis:'>
+         39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='Aspect Based Sentiment Analysis:'>
+         40
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=41 title='Aspect Based Sentiment Analysis:'>
+         41
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=42 title='Aspect Based Sentiment Analysis:'>
+         42
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=43 title='Aspect Based Sentiment Analysis: Tying the loose ends'>
+         43
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='Things I have not talked about:'>
+         44
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=45 title='Thank you, any questions?'>
+         45
       </a>
     </li>
   </ul>

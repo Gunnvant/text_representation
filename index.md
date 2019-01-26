@@ -20,8 +20,8 @@ knit        : slidify::knit2slides
 ## Assumptions I make about you
 
 * Interested in text analysis
-* Know python and its DS/ML ecosystem
-* Have seen and worked with jupyter notebooks
+* Know python and have some expericen with data analysis 
+* Have seen and played with jupyter notebooks
 
 
 --- .class #id
@@ -36,12 +36,10 @@ knit        : slidify::knit2slides
 * NLP and aspect extraction
   * What do people talk about in Amazon reviews?
 * Word vectors and Aspect Synonyms
-  * Do people mention food more than ambience in hotel reviews?
+  * Do people mention food more than service in hotel reviews?
 * Aspect based sentiment analysis
   * Tying the loose ends
-* What I didn't talk about?
-  * You can use labelled data
-  * Fine tune sentiment analysis using NLP parse
+
 
 --- .class #id
 
@@ -367,7 +365,7 @@ But what is NLP?
 
 ## NLP and aspect extraction
 
-So, how does the ability to do POS tagging or finding out Subject-Object relationships helps us?
+So, how does the ability to do POS tagging or finding out Subject-Object relationships help us?
 Sample the sentences below
 
 1. I loved the camera in this mobile phone. But I hated the build quality
@@ -480,3 +478,90 @@ This training process results in vector representation of each word in the corpu
 But what to train for?
 
 <img src="wv6.gif">
+
+
+--- .class #id
+
+## Word vectors and aspect synonyms: Food or Service
+
+How can word vectors help us?
+
+<img src="wv7.png" width="600px">
+
+Let's headover to the lab once again and see how we can extract mentions of specific aspects
+
+
+--- .class #id
+
+## Aspect Based Sentiment Analysis:
+
+In aspect based sentiment analysis we try to find out what people's opninons are about different aspects of a product.
+
+<img src="absa1.png">
+
+
+--- .class #id
+
+## Aspect Based Sentiment Analysis:
+
+One way in which this problem can be solved for is by treating this problem as supervised ML task by labelling the data as follows:
+
+<img src="absa2.png">
+
+
+--- .class #id
+
+## Aspect Based Sentiment Analysis:
+
+One way in which this problem can be solved for is by treating this problem as supervised ML task by labelling the data as follows:
+
+<img src="absa3.png" width="600px">
+
+
+--- .class #id
+
+## Aspect Based Sentiment Analysis:
+
+One way in which this problem can be solved for is by treating this problem as supervised ML task by labelling the data as follows:
+
+<img src="absa3.png" width="600px">
+
+Labour intensive probably not a good idea idea if MVP is all you want to build. In the long term though this is what one should do ideally.
+
+
+--- .class #id
+
+## Aspect Based Sentiment Analysis:
+
+What can we do then if we want to build a quick and dirty MVP?
+
+We already have pre-trained sentiment analysers:
+
+1. Lexicon based (Count nouns, adjectives and match with an existing list of positve/negative words)
+2. Pre-trained ML models
+
+
+--- .class #id
+
+## Aspect Based Sentiment Analysis: Tying the loose ends
+
+1. Use word vectors to find mentions of aspect categories
+2. Use pre-trained models or lexicons to find sentiment of sentence fragments (noun phrases in which aspects occur)
+
+Let's see an example and head over to the lab
+
+
+--- .class #id
+
+
+## Things I have not talked about:
+
+1. How to test how good such a system is?
+2. How to treat this as supervised learning problem?
+
+
+--- .class #id
+
+## Thank you, any questions?
+
+<img src="bye.gif">

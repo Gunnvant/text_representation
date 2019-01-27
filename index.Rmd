@@ -20,7 +20,7 @@ knit        : slidify::knit2slides
 ## Assumptions I make about you
 
 * Interested in text analysis
-* Know python and have some expericen with data analysis 
+* Know python and have some experience with data analysis 
 * Have seen and played with jupyter notebooks
 
 
@@ -217,7 +217,7 @@ Most ML tasks are centered around finding a mapping between predictors and label
 
 $$labels=f(Predictors)$$
 
-And this is how mostly data should be laid out if any ML is to used:
+And this is how mostly data should be laid out if any ML is to be used:
 
 <img src="ML.png">
 
@@ -268,7 +268,7 @@ Traditionally we can use a BOW (Bag of words approach to represent text)
 
 --- &submitcompare1
 ## Representing text for ML tasks
-The problem with BOW represetntation of text is:
+The problem with BOW representation of text is:
 
 *** .explanation
 The problem with BOW representation is that the importance of the words is not captured only counts are considered.
@@ -277,7 +277,7 @@ The problem with BOW representation is that the importance of the words is not c
 --- .class #id
 ## Representing text for ML tasks
 
-An imporovement on the BOW approach is the tfidf representation
+An improvement on the BOW approach is the tfidf representation
 
 <img src="tfidf.png">
 
@@ -305,7 +305,7 @@ Let's head over to our lab to see how we can predict if a tweet is made by Donal
 
 --- .class #id
 
-## Summarising ted talks
+## Summarising Ted talks
 
 Let's take another example to see how we can use tfidf representation in other creative ways. We will take a look at a dataset and try to extract "important" terms out of this document. All we will need to do is pick up the words that have very high tfidf scores.
 
@@ -318,7 +318,8 @@ Let's visit the lab again, you can follow along locally as well.
 
 ## Representing text for ML tasks
 
-Another thing that any numerical representtion of text enables us to do is, in establishing similarity over text. This can aid in doing text search and hence in aid in recommendations.
+Numerical representation of text enables us to calculate text similarity.
+This helps in text search and therefore aids in making recommendations.
 
 The idea is that two similar pieces of text will have similar tfidf representation.
 
@@ -356,7 +357,7 @@ These basic building blocks can be used to create contextual search recommendati
 ## NLP and aspect extraction
 
 Let's now turn our attention to what NLP is and how it can help us in different business contexts. 
-But what is NLP?
+
 
 <img src="nlp.png",height="500px">
 
@@ -368,9 +369,9 @@ But what is NLP?
 So, how does the ability to do POS tagging or finding out Subject-Object relationships help us?
 Sample the sentences below
 
-1. I loved the camera in this mobile phone. But I hated the build quality
+1. I loved the camera in this mobile phone. But I hated the build quality.
 2. The beach has amazing views. Food is great. Drinks are even better and 
-locals are friendly
+locals are friendly.
 
 Can you see how POS tagging be of any use here?
 Let's again go back to our lab and work with nlp_basic.ipynb 
@@ -379,7 +380,7 @@ Let's again go back to our lab and work with nlp_basic.ipynb
 
 ## NLP and aspect extraction: What people in Amazon Reviews talk about?
 
-What does this leads to?
+What does this lead to?
 
 If you are interested in finding what people are talking about:
 
@@ -417,7 +418,7 @@ But first let's talk about word vectors? What will happen if following sentences
 
 1. Nothing at all
 2. _Something_
-3. _Something not appropropriate_
+3. _Something not appropriate_
 4. _I have not listed the most appropriate option_
 
 *** .explanation
@@ -526,7 +527,7 @@ One way in which this problem can be solved for is by treating this problem as s
 
 <img src="absa3.png" width="600px">
 
-Labour intensive probably not a good idea idea if MVP is all you want to build. In the long term though this is what one should do ideally.
+Labour intensive probably not a good idea, if MVP is all you want to build. In the long term though, this is what one should do ideally.
 
 
 --- .class #id

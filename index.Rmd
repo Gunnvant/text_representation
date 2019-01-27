@@ -496,7 +496,7 @@ Let's headover to the lab once again and see how we can extract mentions of spec
 
 ## Aspect Based Sentiment Analysis:
 
-In aspect based sentiment analysis we try to find out what people's opninons are about different aspects of a product.
+In aspect based sentiment analysis we try to find out what people think about different features of the product.
 
 <img src="absa1.png">
 
@@ -538,7 +538,7 @@ What can we do then if we want to build a quick and dirty MVP?
 
 We already have pre-trained sentiment analysers:
 
-1. Lexicon based (Count nouns, adjectives and match with an existing list of positve/negative words)
+1. Lexicon based (Count nouns, adjectives and match with an existing list of positive/negative words)
 2. Pre-trained ML models
 
 
